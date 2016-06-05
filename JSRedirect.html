@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function messageDisp(){
+				document.write("Redirecting to www.google.com");
+			}
+			function getRedirect(){
+				
+				setTimeout('messageDisp()',10000);
+				window.location = "https://www.google.com"
+			}
+
+		</script>
+	</head>
+	<body>
+		<input type="submit" value="Access Google" onClick="getRedirect()">
+	</body>
+</html>
