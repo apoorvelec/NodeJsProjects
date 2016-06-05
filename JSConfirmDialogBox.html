@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function getConfirmDialog(){
+				var returnValue = confirm("Proceed?");
+				if(returnValue == true){
+					document.write("Ok, we have proceeded ...");
+				} else{
+					document.write("We cannot proceed ...");
+				}
+			}
+
+		</script>
+	</head>
+	<body>
+		<input type="submit" value="Access Google" onClick="getConfirmDialog()">
+	</body>
+</html>
