@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function getPromptDialog(){
+				var returnValue = prompt("Enter your name:", "Name");
+				if(returnValue != null){
+					document.write("Hello "+returnValue);
+				} else{
+					alert("We cannot proceed unless you enter a name!");
+				}
+			}
+
+		</script>
+	</head>
+	<body>
+		<input type="submit" value="Click Here !" onClick="getPromptDialog()">
+	</body>
+</html>
