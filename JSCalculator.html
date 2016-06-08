@@ -48,6 +48,12 @@
 				} else if(id == 'SIN'){
 					CalculatorExpression=CalculatorExpression.concat("Math.sin(");
 					document.getElementById('CalcOutput').value=CalculatorExpression;
+				} else if(id == 'COS'){
+					CalculatorExpression=CalculatorExpression.concat("Math.cos(");
+					document.getElementById('CalcOutput').value=CalculatorExpression;
+				} else if(id == 'TAN'){
+					CalculatorExpression=CalculatorExpression.concat("Math.tan(");
+					document.getElementById('CalcOutput').value=CalculatorExpression;
 				} else if(id == '('){
 					CalculatorExpression=CalculatorExpression.concat("(");
 					document.getElementById('CalcOutput').value=CalculatorExpression;
@@ -95,9 +101,12 @@
 			<button id="/" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">/</button>
 			<br /><br />
 			<button id="CLEAR" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">CLEAR</button>
-			<button id="SIN" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">SIN</button>
 			<button id="(" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">(</button>
 			<button id=")" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">)</button>
+			<br /><br />
+			<button id="SIN" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">SIN</button>
+			<button id="COS" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">COS</button>
+			<button id="TAN" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">TAN</button>
 		</div>
 	</body>
 </html>
