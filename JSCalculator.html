@@ -1,26 +1,33 @@
 <html>
 	<head>
 		<script type="text/javascript">
-			function sayHello(){
-				alert("Hello!");
+			function buttonClick(){
+				var test = eval("1+1");
+				document.getElementById('CalcOutput').value=test.toString();
 			}
 		</script>
 	</head>
 	<body>
 		<div>
-			<button style="height:50px;width:100px" type="button" onClick="sayHello()">1</button>
-			<button style="height:50px;width:100px" type="button" onClick="sayHello()">2</button>
-			<button style="height:50px;width:100px" type="button" onClick="sayHello()">3</button>
+			<textarea id="CalcOutput" style="height:100px;width:309px">
+				See your calculations here!
+			</textarea>
+		</div>
+		<div>
+			<button id="1" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">1</button>
+			<button id="2" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">2</button>
+			<button id="3" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">3</button>
 			<br /><br />
-			<button style="height:50px;width:100px" type="button" onClick="sayHello()">4</button>
-			<button style="height:50px;width:100px" type="button" onClick="sayHello()">5</button>
-			<button style="height:50px;width:100px" type="button" onClick="sayHello()">6</button>
+			<button id="4" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">4</button>
+			<button id="5" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">5</button>
+			<button id="6" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">6</button>
 			<br /><br />
-			<button style="height:50px;width:100px" type="button" onClick="sayHello()">7</button>
-			<button style="height:50px;width:100px" type="button" onClick="sayHello()">8</button>
-			<button style="height:50px;width:100px" type="button" onClick="sayHello()">9</button>
+			<button id="7" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">7</button>
+			<button id="8" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">8</button>
+			<button id="9" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">9</button>
 			<br /><br />
-			<button style="height:50px;width:100px" type="button" onClick="sayHello()">0</button>
+			<button id="0" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">0</button>
+			<button id="=" style="height:50px;width:100px" type="button" onClick="buttonClick(this.id)">=</button>
 		</div>
 	</body>
 </html>
