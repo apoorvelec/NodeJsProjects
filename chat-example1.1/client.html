@@ -6,7 +6,12 @@
 			var clientSocket = io.connect("127.0.0.1:3000");
 			clientSocket.on("message_to_client",function(data){
 				document.getElementById("chat_log").innerHTML = ("<hr />"+data['message']+document.getElementById("chat_log").innerHTML);
-				});
+			});
+			
+			clientSocket.on("connected_users",function(data){
+				document.getElementById("num_users").innerHTML = data;
+			});
+
 			function sendMessage(){
 				var msg = document.getElementById("message_id").value;
 				clientSocket.emit("message_to_server",{message: msg});
@@ -18,5 +23,6 @@
 		<input type="text" id="message_id"/>
 		<button onClick="sendMessage()">send</button>
 		<div id="chat_log"></div>
+		<div id="num_users"></div>
 	</body>
 </html>
