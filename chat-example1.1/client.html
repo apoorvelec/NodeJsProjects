@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			var clientSocket = io.connect("127.0.0.1:3000");
+			clientSocket.on("message_to_client",function(data){
+				document.getElementById("chat_log").innerHTML = ("<hr />"+data['message']+document.getElementById("chat_log").innerHTML);
+				});
+			function sendMessage(){
+				var msg = document.getElementById("message_id").value;
+				clientSocket.emit("message_to_server",{message: msg});
+			}
+
+		</script>
+	</head>
+	<body>
+		<input type="text" id="message_id"/>
+		<button onClick="sendMessage()">send</button>
+		<div id="chat_log"></div>
+	</body>
+</html>

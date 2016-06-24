@@ -3,9 +3,11 @@ var fs = require("fs");
 
 var portNumber = 3000;
 var server = http.createServer(function(request,response){
-	response.writeHead(200,{'Content-Type':'text/html'});
-	response.write("Hello World!!");
-	response.end();
+	fs.readFile("client.html","utf-8",function(err,data){
+		response.writeHead(200,{'Content-Type':'text/html'});
+		response.write(data);
+		response.end();
+	});
 }).listen(portNumber);
 
 var io = require("socket.io").listen(server);
