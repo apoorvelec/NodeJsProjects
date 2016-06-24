@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+
+	<style>
+		.showUsers{
+			background-color:#9eff9e;
+			border:none;
+		}
+	</style>
 	<head>
 		<script src="/socket.io/socket.io.js"></script>
 		<script type="text/javascript">
@@ -20,7 +27,7 @@
 		</script>
 	</head>
 	<body>
-		<div id="num_users" align="right"><Button id="num_users_button"></Button></div>
+		<div id="num_users" align="right"><Button id="num_users_button" class="showUsers"></Button></div>
 		<input type="text" id="message_id"/>
 		<button onClick="sendMessage()">send</button>
 		<div id="chat_log"></div>
