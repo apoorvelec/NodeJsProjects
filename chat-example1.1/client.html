@@ -9,7 +9,7 @@
 			});
 			
 			clientSocket.on("connected_users",function(data){
-				document.getElementById("num_users").innerHTML = data;
+				document.getElementById("num_users_button").innerHTML = data;
 			});
 
 			function sendMessage(){
@@ -20,9 +20,9 @@
 		</script>
 	</head>
 	<body>
+		<div id="num_users" align="right"><Button id="num_users_button"></Button></div>
 		<input type="text" id="message_id"/>
 		<button onClick="sendMessage()">send</button>
 		<div id="chat_log"></div>
-		<div id="num_users"></div>
 	</body>
 </html>
