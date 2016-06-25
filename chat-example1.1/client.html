@@ -36,14 +36,15 @@
 		<script type="text/javascript">
 			var clientSocket = io.connect("127.0.0.1:3000");
 			clientSocket.on("message_to_client",function(data){
-				document.getElementById("chat_log").innerHTML = ("<hr />"+data['message']+document.getElementById("chat_log").innerHTML);
+				document.getElementById("chat_log").innerHTML = ("<hr /> <b style=\"color:red\">"+data['username']+":</b> "+data['message']+document.getElementById("chat_log").innerHTML);
 			});
 			
 			clientSocket.on("connected_users",function(data){
 				document.getElementById("num_users_button").innerHTML = data['numberOfClients'];
 				var userListHTML = "";
 				for(var i=0;i<data['clients'].length;i++){
-					userListHTML = userListHTML + "<a>"+data['clients'][i]+"</a>";
+					var user = data['clients'][i];
+					userListHTML = userListHTML + "<a>"+user+"</a>";
 				}
 				document.getElementById("user_list").innerHTML = userListHTML;
 			});
@@ -52,16 +53,28 @@
 				var msg = document.getElementById("message_id").value;
 				clientSocket.emit("message_to_server",{message: msg});
 			}
-
+			
+			function sendUsername(){
+				var USERNAME = document.getElementById("username_id").value;
+				clientSocket.emit("assign_username",{USERNAME:USERNAME});
+				document.getElementById("username_assign_interface").style.display = "none";
+				document.getElementById("chat_interface").style.display = "block";
+			}
 		</script>
 	</head>
 	<body>
-		<div id="num_users" align="right" class="dropdown">
-			<Button id="num_users_button" class="showUsers"></Button>
-			<div class="dropdown-content" id="user_list"></div>
+		<div id="username_assign_interface">
+			<input type="text" id="username_id">
+			<Button onClick="sendUsername()">Go!</Button>
 		</div>
-		<input type="text" id="message_id"/>
-		<button onClick="sendMessage()">send</button>
-		<div id="chat_log"></div>
+		<div id="chat_interface" style="display:none">
+			<div id="num_users" align="right" class="dropdown">
+				<Button id="num_users_button" class="showUsers"></Button>
+				<div class="dropdown-content" id="user_list"></div>
+			</div>
+			<input type="text" id="message_id"/>
+			<button onClick="sendMessage()">send</button>
+			<div id="chat_log"></div>
+		</div>
 	</body>
 </html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Give Username</title>
+		<script src="socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			var socket = io.connect("127.0.0.1:3000");
+			function sendUsername(){
+				var USERNAME = document.getElementById('username_id').value;
+				io.sockets.emit("assign_username",USERNAME);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="username_id">
+		<Button onClick="sendUsername()">Go!</Button>
+	</body>
+</html>
