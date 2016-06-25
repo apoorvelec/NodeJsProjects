@@ -5,7 +5,7 @@
 
 		.dropdown{
 			position:absolute;
-			right:10px;
+			right:150px;
 			display:inline-block;
 		}
 		.showUsers{
@@ -41,7 +41,11 @@
 			
 			clientSocket.on("connected_users",function(data){
 				document.getElementById("num_users_button").innerHTML = data['numberOfClients'];
-				document.getElementById("user_list").innerHTML = "<a>"+data['clients'][0]+"</a>";
+				var userListHTML = "";
+				for(var i=0;i<data['clients'].length;i++){
+					userListHTML = userListHTML + "<a>"+data['clients'][i]+"</a>";
+				}
+				document.getElementById("user_list").innerHTML = userListHTML;
 			});
 
 			function sendMessage(){
