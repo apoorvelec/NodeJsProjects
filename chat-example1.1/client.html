@@ -2,9 +2,33 @@
 <html>
 
 	<style>
+
+		.dropdown{
+			position:absolute;
+			right:10px;
+			display:inline-block;
+		}
 		.showUsers{
-			background-color:#9eff9e;
+			background-color:#4CAF50;
+			color:white;
+			padding: 16px;
+			font-size:16px;
 			border:none;
+			cursor: pointer;
+		}
+		.dropdown-content{
+			display:none;
+			position:absolute;
+			background-color:#f9f9f9;
+		}
+		.dropdown-content a{
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
+		.dropdown:hover .dropdown-content{
+			display: block;
 		}
 	</style>
 	<head>
@@ -16,7 +40,8 @@
 			});
 			
 			clientSocket.on("connected_users",function(data){
-				document.getElementById("num_users_button").innerHTML = data;
+				document.getElementById("num_users_button").innerHTML = data['numberOfClients'];
+				document.getElementById("user_list").innerHTML = "<a>"+data['clients'][0]+"</a>";
 			});
 
 			function sendMessage(){
@@ -27,7 +52,10 @@
 		</script>
 	</head>
 	<body>
-		<div id="num_users" align="right"><Button id="num_users_button" class="showUsers"></Button></div>
+		<div id="num_users" align="right" class="dropdown">
+			<Button id="num_users_button" class="showUsers"></Button>
+			<div class="dropdown-content" id="user_list"></div>
+		</div>
 		<input type="text" id="message_id"/>
 		<button onClick="sendMessage()">send</button>
 		<div id="chat_log"></div>
