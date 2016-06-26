@@ -10,4 +10,8 @@ This is a chat application based on Node.JS language. It makes use of the popula
 
 	Step 4} Open a browser (liek Chrome etc.) and type in the address "localhost:3000" and start chatting away.
 
+After you have typed in "localhost:3000" in the browser, you will see the following page where you can assign yourself a username for the chat,
+
+<br /><img src="https://github.com/apoorvelec/NodeJsProjects/blob/master/chat-example1.1/images/UsernamePage.png" alt="Chat username page.png">
+
 TODO: More detailed explanation to be added shortly.
