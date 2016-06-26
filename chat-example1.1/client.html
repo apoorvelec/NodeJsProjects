@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-	<style>
+	<style style="text/css">
 
 		.dropdown{
 			position:absolute;
@@ -30,6 +30,57 @@
 		.dropdown:hover .dropdown-content{
 			display: block;
 		}
+
+		.Introduction_page{
+			top:50%;
+			margin:0 auto;
+		}
+
+		.username_button{
+			background-color:#4CAF50;
+			margin:20px;
+			width:100px;
+			height:50px;
+			border:none;
+		}
+		.username_button:hover{
+			background-color:#4CAF11;
+		}
+
+		div.slide-left {
+	       	        width:100%;
+		    	overflow:hidden;
+			color:#4CAF50;
+		}
+		div.slide-left p {
+			animation: slide-left 2s;
+			font-size:40px;
+			font-style:italic;
+		}
+
+		div.slide-left2 {
+			width:100%;
+			overflow:hidden;
+			color:#4CAF50;
+		}
+		div.slide-left2 p {
+			animation: slide-left 3s;
+			font-size:25px;
+			font-style:italic;
+		}
+
+		@keyframes slide-left {
+			from {
+				margin-left: 100%;
+			        width: 300%; 
+			}
+
+			to {
+				margin-left: 0%;
+				width: 100%;
+			}
+		}
+
 	</style>
 	<head>
 		<script src="/socket.io/socket.io.js"></script>
@@ -63,9 +114,15 @@
 		</script>
 	</head>
 	<body>
-		<div id="username_assign_interface">
-			<input type="text" id="username_id">
-			<Button onClick="sendUsername()">Go!</Button>
+		<div id="username_assign_interface" class="Introduction_page" align="center">
+			<input type="text" id="username_id" style="width:300px;height:50px">
+			<Button onClick="sendUsername()" class="username_button">Go!</Button>
+			<br /><br />
+			<div class="slide-left">
+				<p>Welcome to Chattr !</p>
+			</div>
+			<div class="slide-left2"><p>Choose a username and start!</p></div>
+
 		</div>
 		<div id="chat_interface" style="display:none">
 			<div id="num_users" align="right" class="dropdown">
