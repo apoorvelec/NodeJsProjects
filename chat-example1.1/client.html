@@ -95,7 +95,7 @@
 				var userListHTML = "";
 				for(var i=0;i<data['clients'].length;i++){
 					var user = data['clients'][i];
-					userListHTML = userListHTML + "<a>"+user+"</a>";
+					userListHTML = userListHTML + "<Button onClick=\"openPrivateChat()\">"+user+"</Button>";
 				}
 				document.getElementById("user_list").innerHTML = userListHTML;
 			});
@@ -110,6 +110,12 @@
 				clientSocket.emit("assign_username",{USERNAME:USERNAME});
 				document.getElementById("username_assign_interface").style.display = "none";
 				document.getElementById("chat_interface").style.display = "block";
+			}
+
+			function openPrivateChat(){
+				document.getElementById("chat_interface_private").style.display = "block";
+				document.getElementById("chat_interface").style.display = "none";
+				alert("whatever");
 			}
 		</script>
 	</head>
@@ -132,6 +138,11 @@
 			<input type="text" id="message_id"/>
 			<button onClick="sendMessage()">send</button>
 			<div id="chat_log"></div>
+		</div>
+		<div id="chat_interface_private" style="display:none">
+			<input type="text_private" id="message_id_private" />
+			<button onClick="sendPrivateMessage()">send</button>
+			<div id="chat_log_private"></div>
 		</div>
 	</body>
 </html>
