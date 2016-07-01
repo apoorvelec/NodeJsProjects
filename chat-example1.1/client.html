@@ -122,7 +122,8 @@
 			}
 
 			function sendPrivateMessage(){
-				clientSocket.emit("private_message",{message:"test",targetUser:privateChatUser});
+				var msg = document.getElementById("message_id_private").value;
+				clientSocket.emit("private_message",{message:msg,targetUser:privateChatUser});
 			}
 		</script>
 	</head>
