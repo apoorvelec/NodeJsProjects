@@ -86,6 +86,7 @@
 		<script src="/socket.io/socket.io.js"></script>
 		<script type="text/javascript">
 			var clientSocket = io.connect("127.0.0.1:3000");
+			var privateChatuser = "";
 			clientSocket.on("message_to_client",function(data){
 				document.getElementById("chat_log").innerHTML = ("<hr /> <b style=\"color:red\">"+data['username']+":</b> "+data['message']+document.getElementById("chat_log").innerHTML);
 			});
@@ -95,7 +96,7 @@
 				var userListHTML = "";
 				for(var i=0;i<data['clients'].length;i++){
 					var user = data['clients'][i];
-					userListHTML = userListHTML + "<Button onClick=\"openPrivateChat()\">"+user+"</Button>";
+					userListHTML = userListHTML + "<Button onClick=\"openPrivateChat('"+user+"')\">"+user+"</Button>";
 				}
 				document.getElementById("user_list").innerHTML = userListHTML;
 			});
@@ -112,10 +113,16 @@
 				document.getElementById("chat_interface").style.display = "block";
 			}
 
-			function openPrivateChat(){
+			function openPrivateChat(user){
 				document.getElementById("chat_interface_private").style.display = "block";
 				document.getElementById("chat_interface").style.display = "none";
-				alert("whatever");
+				console.log("opened private chat");
+				alert("You will now be chatting with: "+user);
+				privateChatUser = user;
+			}
+
+			function sendPrivateMessage(){
+				clientSocket.emit("private_message",{message:"test",targetUser:privateChatUser});
 			}
 		</script>
 	</head>
@@ -140,7 +147,7 @@
 			<div id="chat_log"></div>
 		</div>
 		<div id="chat_interface_private" style="display:none">
-			<input type="text_private" id="message_id_private" />
+			<input type="text" id="message_id_private" />
 			<button onClick="sendPrivateMessage()">send</button>
 			<div id="chat_log_private"></div>
 		</div>
