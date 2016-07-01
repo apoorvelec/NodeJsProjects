@@ -125,6 +125,11 @@
 				var msg = document.getElementById("message_id_private").value;
 				clientSocket.emit("private_message",{message:msg,targetUser:privateChatUser});
 			}
+
+			function goToPublicChat(){
+				document.getElementById("chat_interface_private").style.display = "none";
+				document.getElementById("chat_interface").style.display = "block";
+			}
 		</script>
 	</head>
 	<body>
@@ -150,6 +155,7 @@
 		<div id="chat_interface_private" style="display:none">
 			<input type="text" id="message_id_private" />
 			<button onClick="sendPrivateMessage()">send</button>
+			<button onClick="goToPublicChat()">Back</button>
 			<div id="chat_log_private"></div>
 		</div>
 	</body>
