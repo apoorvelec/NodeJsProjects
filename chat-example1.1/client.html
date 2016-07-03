@@ -15,6 +15,7 @@
 			font-size:16px;
 			border:none;
 			cursor: pointer;
+			width:100%;
 		}
 		.dropdown-content{
 			display:none;
@@ -96,7 +97,7 @@
 				var userListHTML = "";
 				for(var i=0;i<data['clients'].length;i++){
 					var user = data['clients'][i];
-					userListHTML = userListHTML + "<Button onClick=\"openPrivateChat('"+user+"')\">"+user+"</Button>";
+					userListHTML = userListHTML + "<Button style=\"background-color:#4CAF99;padding:16px;width:100%\"onClick=\"openPrivateChat('"+user+"')\">"+user+"</Button>";
 				}
 				document.getElementById("user_list").innerHTML = userListHTML;
 			});
@@ -138,8 +139,8 @@
 	</head>
 	<body>
 		<div id="username_assign_interface" class="Introduction_page" align="center">
-			<input type="text" id="username_id" style="width:300px;height:50px">
-			<Button onClick="sendUsername()" class="username_button">Go!</Button>
+			<input type="text" id="username_id" style="width:300px;height:50px" onkeydown="if(event.keyCode==13){document.getElementById('username_button').click()}">
+			<Button onClick="sendUsername()" class="username_button" id="username_button">Go!</Button>
 			<br /><br />
 			<div class="slide-left">
 				<p>Welcome to Chattr !</p>
@@ -152,14 +153,18 @@
 				<Button id="num_users_button" class="showUsers"></Button>
 				<div class="dropdown-content" id="user_list"></div>
 			</div>
-			<input type="text" id="message_id"/>
-			<button onClick="sendMessage()">send</button>
+			<div>
+				<input type="text" id="message_id" style="width:60%;height:50px" placeholder="Write your message!!" onkeydown="if(event.keyCode==13){document.getElementById('broadcast_message_button').click()}" />
+				<button onClick="sendMessage()" style="background-color:#4CAF50;color:white;height:50px;width:200px" id="broadcast_message_button">Send</button>
+			</div>
 			<div id="chat_log"></div>
 		</div>
 		<div id="chat_interface_private" style="display:none">
-			<input type="text" id="message_id_private" />
-			<button onClick="sendPrivateMessage()">send</button>
-			<button onClick="goToPublicChat()">Back</button>
+			<div style="white-space:nowrap">
+				<input type="text" id="message_id_private" placeholder="Write your message!!" style="width:70%;height:50px" onkeydown="if(event.keyCode==13){document.getElementById('private_message_button').click()}" />
+				<button onClick="sendPrivateMessage()" style="background-color:#4CAF50;color:white;height:50px;width:15%" id="private_message_button">Send</button>
+				<button onClick="goToPublicChat()" style="background-color:#4CAF50;color:white;height:50px;width:15%">Back</button>
+			</div>
 			<div id="chat_log_private"></div>
 		</div>
 	</body>
