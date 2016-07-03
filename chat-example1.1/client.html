@@ -108,6 +108,7 @@
 
 			function sendMessage(){
 				var msg = document.getElementById("message_id").value;
+				document.getElementById("message_id").value="";
 				clientSocket.emit("message_to_server",{message: msg});
 			}
 			
@@ -128,6 +129,7 @@
 
 			function sendPrivateMessage(){
 				var msg = document.getElementById("message_id_private").value;
+				document.getElementById("message_id_private").value = "";
 				clientSocket.emit("private_message",{message:msg,targetUser:privateChatUser});
 			}
 
