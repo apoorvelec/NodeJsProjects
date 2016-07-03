@@ -32,7 +32,8 @@ io.sockets.on("connection",function(socket){
 			}
 		}
 		// Now that target socket id is found send message
-		io.to(targetSocketId).emit("message_to_client",{message:data["message"],username:socket.username});
+		io.to(targetSocketId).emit("private_message_to_client",{message:data["message"],username:socket.username});
+		io.to(socket.id).emit("private_message_to_client",{message:data["message"],username:socket.username});
 	});
 
 	socket.on("assign_username",function(data){

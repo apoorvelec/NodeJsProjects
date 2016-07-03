@@ -101,6 +101,10 @@
 				document.getElementById("user_list").innerHTML = userListHTML;
 			});
 
+			clientSocket.on("private_message_to_client",function(data){
+				document.getElementById("chat_log_private").innerHTML = ("<hr /><b style=\"color:red\">"+data['username']+"</b>"+data['message']+document.getElementById("chat_log_private").innerHTML);
+			});
+
 			function sendMessage(){
 				var msg = document.getElementById("message_id").value;
 				clientSocket.emit("message_to_server",{message: msg});
