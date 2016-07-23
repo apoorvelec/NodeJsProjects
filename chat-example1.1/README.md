@@ -19,6 +19,6 @@ After you have typed in "localhost:3000" in the browser, you will see the follow
 
 After you typed in 
 
-<br /><img src="https://github.com/apoorvelec/NodeJsProjects/blob/master/chat-example1.1/images/AfterLogIn.png" alt="Chat after login.png">
+<br /><img src="https://github.com/apoorvelec/NodeJsProjects/blob/master/chat-example1.1/images/UsernameAssigned.png" alt="Chat after login.png">
 
 TODO: More detailed explanation to be added shortly.
