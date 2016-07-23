@@ -8,10 +8,17 @@ This is a chat application based on Node.JS language. It makes use of the popula
 
 	Step 3} Change the directory to chat-example1.1. Then execute the command "node server.js" and you are done to use the Web chat application!
 
-	Step 4} Open a browser (liek Chrome etc.) and type in the address "localhost:3000" and start chatting away.
+	Step 4} Open a browser (like Chrome etc.) and type in the address "localhost:3000" and start chatting away.
+
+
+Here is an illustration of the chat app when it runs properly:
 
 After you have typed in "localhost:3000" in the browser, you will see the following page where you can assign yourself a username for the chat,
 
 <br /><img src="https://github.com/apoorvelec/NodeJsProjects/blob/master/chat-example1.1/images/UsernamePage.png" alt="Chat username page.png">
+
+After you typed in 
+
+<br /><img src="https://github.com/apoorvelec/NodeJsProjects/blob/master/chat-example1.1/images/AfterLogIn.png" alt="Chat after login.png">
 
 TODO: More detailed explanation to be added shortly.
